@@ -5,6 +5,17 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Serializer | test model', function(hooks) {
   setupTest(hooks);
 
+
+  test('it serializes created record', function(assert) {
+    const store = this.owner.lookup('service:store');
+    let record;
+    run(() => {
+      record = store.createRecord('test-model');
+    });
+
+    assert.deepEqual(record.serialize(), { someNumberField: 1 });
+  });
+
   test('it serializes pushed record', function(assert) {
     const store = this.owner.lookup('service:store');
     run(() => {
