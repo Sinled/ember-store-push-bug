@@ -5,15 +5,6 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Serializer | test model', function(hooks) {
   setupTest(hooks);
 
-  test('it serializes records', function(assert) {
-    let store = this.owner.lookup('service:store');
-    let record = store.createRecord('test-model', {});
-
-    let serializedRecord = record.serialize();
-
-    assert.ok(serializedRecord);
-  });
-
   test('it serializes pushed record', function(assert) {
     const store = this.owner.lookup('service:store');
     run(() => {
